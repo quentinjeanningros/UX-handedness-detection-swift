@@ -7,11 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet var handednessDetectionView: handednessDetectionView!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        handednessDetectionView.label = label
     }
 
 

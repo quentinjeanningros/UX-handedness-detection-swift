@@ -7,16 +7,21 @@
 
 import UIKit
 
-class handednessDetectionView: UIView
-{
-    var label: UILabel?
-    private var startingPoint: CGPoint? = nil
+//MARK: - WHEEL MODEL DELEGATE
 
-    func updateText(text: String)
-    {
-        guard let l = self.label else {return}
-        l.text = text
-    }
+protocol DetectionDelegate
+{
+    func rightDetected()
+    func leftDetected()
+    func undefinedDetected()
+}
+
+//MARK: - DETECTION VIEW
+
+class HandednessDetectionView: UIView
+{
+    public var delegate: DetectionDelegate? = nil
+    private var startingPoint: CGPoint? = nil
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
@@ -32,42 +37,41 @@ class handednessDetectionView: UIView
         {
             guessHandedness(start: start, end: touch.location(in: self))
         }
-        else
+        else if let delegate = self.delegate
         {
-            self.updateText(text: "🤔")
+            delegate.undefinedDetected()
         }
         startingPoint = nil
     }
     
-
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         if let start = startingPoint, let touch = touches.first
         {
             guessHandedness(start: start, end: touch.location(in: self))
         }
-        else
+        else if let delegate = self.delegate
         {
-            self.updateText(text: "🤔")
+            delegate.undefinedDetected()
         }
         startingPoint = nil
     }
 
     func guessHandedness(start: CGPoint, end: CGPoint)
     {
+        guard let delegate = delegate else { return }
         if start.x > end.x
         {
-            self.updateText(text: "👈")
+            delegate.leftDetected()
         }
         else if start.x < end.x
         {
-            self.updateText(text: "👉")
+            delegate.rightDetected()
         }
         else
         {
-            self.updateText(text: "🤔")
+            delegate.undefinedDetected()
         }
     }
-    
     
 }

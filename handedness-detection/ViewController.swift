@@ -11,14 +11,13 @@ class ViewController: UIViewController
 {
 
     @IBOutlet weak var label: UILabel!
-    @IBOutlet var handednessDetectionView: handednessDetectionView!
+    @IBOutlet var handednessDetectionView: HandednessDetectionView!
+    var delegate: HandednessLearning = HandednessLearning(size: 5)
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        handednessDetectionView.label = label
+        handednessDetectionView.delegate = delegate
     }
-
-
+    
 }
-

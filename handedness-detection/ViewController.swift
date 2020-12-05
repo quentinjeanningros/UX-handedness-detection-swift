@@ -7,17 +7,33 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class ViewController: UIViewController, HandednessDelegate
 {
+    func onAction(hand: Handedness) {
+        if (hand == Handedness.left)
+        {
+            label.text = "👈"
+        }
+        else if (hand == Handedness.right)
+        {
+            label.text = "👉"
+        }
+        else
+        {
+            label.text = "🤔"
+        }
+    }
+    
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet var handednessDetectionView: HandednessDetectionView!
-    var delegate: HandednessLearning = HandednessLearning(size: 5)
+    var learning: HandednessLearning = HandednessLearning(size: 5)
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        handednessDetectionView.delegate = delegate
+        handednessDetectionView.delegate = learning
+        learning.delegate = self
     }
     
 }

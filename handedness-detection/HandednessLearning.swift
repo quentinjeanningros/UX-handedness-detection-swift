@@ -7,6 +7,12 @@
 
 import Foundation
 
+//MARK: - HANDEDNESS DELEGATE
+
+protocol HandednessDelegate {
+    func onAction(hand: Handedness)
+}
+
 //MARK: - ENUM HANDEDNESS
 
 enum Handedness
@@ -20,6 +26,8 @@ enum Handedness
 
 class HandednessLearning: DetectionDelegate
 {
+    public var delegate: HandednessDelegate? = nil
+
     //Ringbuffer
     private var rightCount: UInt = 0
     private var leftCount: UInt = 0
@@ -55,7 +63,6 @@ class HandednessLearning: DetectionDelegate
         }
         array[index] = hand
         index += 1
-        print(getAverage())
     }
     
     func getAverage() -> Handedness
@@ -76,16 +83,22 @@ class HandednessLearning: DetectionDelegate
     {
         add(hand: Handedness.right)
         rightCount += 1
+        guard let delegate = delegate else { return }
+        delegate.onAction(hand: getAverage())
     }
     
     func leftDetected()
     {
         add(hand: Handedness.left)
         leftCount += 1
+        guard let delegate = delegate else { return }
+        delegate.onAction(hand: getAverage())
     }
     
     func undefinedDetected()
     {
         add(hand: Handedness.unknow)
+        guard let delegate = delegate else { return }
+        delegate.onAction(hand: getAverage())
     }
 }

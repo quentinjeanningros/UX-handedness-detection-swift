@@ -26,7 +26,7 @@ class ViewController: UIViewController, HandednessDelegate
     
 
     @IBOutlet weak var label: UILabel!
-    @IBOutlet var handednessDetectionView: HandednessDetectionView!
+    @IBOutlet var handednessDetectionView: SimpleHandednessDetectionView!
     var learning: HandednessLearning = HandednessLearning(size: 5)
     
     override func viewDidLoad()

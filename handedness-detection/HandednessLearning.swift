@@ -7,6 +7,15 @@
 
 import Foundation
 
+//MARK: - WHEEL MODEL DELEGATE
+
+protocol DetectionDelegate
+{
+    func rightDetected()
+    func leftDetected()
+    func undefinedDetected()
+}
+
 //MARK: - HANDEDNESS DELEGATE
 
 protocol HandednessDelegate {

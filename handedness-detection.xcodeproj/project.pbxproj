@@ -13,7 +13,8 @@
 		471C04542561B2D2004AE5EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471C04522561B2D2004AE5EA /* Main.storyboard */; };
 		471C04562561B2D4004AE5EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 471C04552561B2D4004AE5EA /* Assets.xcassets */; };
 		471C04592561B2D4004AE5EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471C04572561B2D4004AE5EA /* LaunchScreen.storyboard */; };
-		471C04672561BDF5004AE5EA /* HandednessDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C04662561BDF5004AE5EA /* HandednessDetectionView.swift */; };
+		471C04672561BDF5004AE5EA /* SimpleHandednessDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C04662561BDF5004AE5EA /* SimpleHandednessDetectionView.swift */; };
+		473969CA258E14DA0041D83F /* AdvancedHandednessDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473969C9258E14DA0041D83F /* AdvancedHandednessDetectionView.swift */; };
 		474C97FF2565D90F00BC84EF /* HandednessLearning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C97FE2565D90F00BC84EF /* HandednessLearning.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +27,8 @@
 		471C04552561B2D4004AE5EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		471C04582561B2D4004AE5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		471C045A2561B2D4004AE5EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		471C04662561BDF5004AE5EA /* HandednessDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandednessDetectionView.swift; sourceTree = "<group>"; };
+		471C04662561BDF5004AE5EA /* SimpleHandednessDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleHandednessDetectionView.swift; sourceTree = "<group>"; };
+		473969C9258E14DA0041D83F /* AdvancedHandednessDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedHandednessDetectionView.swift; sourceTree = "<group>"; };
 		474C97FE2565D90F00BC84EF /* HandednessLearning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandednessLearning.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,7 +69,8 @@
 				471C04552561B2D4004AE5EA /* Assets.xcassets */,
 				471C04572561B2D4004AE5EA /* LaunchScreen.storyboard */,
 				471C045A2561B2D4004AE5EA /* Info.plist */,
-				471C04662561BDF5004AE5EA /* HandednessDetectionView.swift */,
+				471C04662561BDF5004AE5EA /* SimpleHandednessDetectionView.swift */,
+				473969C9258E14DA0041D83F /* AdvancedHandednessDetectionView.swift */,
 				474C97FE2565D90F00BC84EF /* HandednessLearning.swift */,
 			);
 			path = "handedness-detection";
@@ -144,10 +147,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				471C04512561B2D2004AE5EA /* ViewController.swift in Sources */,
+				473969CA258E14DA0041D83F /* AdvancedHandednessDetectionView.swift in Sources */,
 				474C97FF2565D90F00BC84EF /* HandednessLearning.swift in Sources */,
 				471C044D2561B2D2004AE5EA /* AppDelegate.swift in Sources */,
 				471C044F2561B2D2004AE5EA /* SceneDelegate.swift in Sources */,
-				471C04672561BDF5004AE5EA /* HandednessDetectionView.swift in Sources */,
+				471C04672561BDF5004AE5EA /* SimpleHandednessDetectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

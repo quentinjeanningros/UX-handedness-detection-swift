@@ -7,18 +7,9 @@
 
 import UIKit
 
-//MARK: - WHEEL MODEL DELEGATE
-
-protocol DetectionDelegate
-{
-    func rightDetected()
-    func leftDetected()
-    func undefinedDetected()
-}
-
 //MARK: - DETECTION VIEW
 
-class HandednessDetectionView: UIView
+class SimpleHandednessDetectionView: UIView
 {
     public var delegate: DetectionDelegate? = nil
     private var startingPoint: CGPoint? = nil
@@ -60,18 +51,34 @@ class HandednessDetectionView: UIView
     func guessHandedness(start: CGPoint, end: CGPoint)
     {
         guard let delegate = delegate else { return }
-        if start.x > end.x
+        if start.y > end.y
         {
-            delegate.leftDetected()
+            if start.x > end.x
+            {
+                delegate.leftDetected()
+                return
+            }
+            else if start.x < end.x
+            {
+                delegate.rightDetected()
+                return
+            }
         }
-        else if start.x < end.x
+        else if start.y < end.y
         {
-            delegate.rightDetected()
+            print("ok")
+            if start.x < end.x
+            {
+                delegate.leftDetected()
+                return
+            }
+            else if start.x > end.x
+            {
+                delegate.rightDetected()
+                return
+            }
         }
-        else
-        {
-            delegate.undefinedDetected()
-        }
+        delegate.undefinedDetected()
     }
     
 }
